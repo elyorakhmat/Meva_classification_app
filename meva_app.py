@@ -4,11 +4,11 @@ from fastai.vision.all import *
 import torch
 import pathlib
 import platform
-from PIL import Image
-import io
+
+plt = platform.system()
 
 # Fix WindowsPath issue if model was trained on Linux/Colab
-if platform.system() == "Windows":
+if plt == 'Linux':
     pathlib.PosixPath = pathlib.WindowsPath
 
 # --- Title & description ---
