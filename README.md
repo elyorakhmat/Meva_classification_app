@@ -1,0 +1,1 @@
+This is a small streamlit app that can predict images of fruits and vegetables. The AI model is developed using resnet50 model. And the dataset is taken from Google Open Image Dataset v4; 19 classes of fruits and vegetable images, and each contains up to 500 images. Main technologies and tools: fastai, torch, streamlit.
