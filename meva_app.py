@@ -3,10 +3,11 @@ import streamlit as st
 from fastai.vision.all import *
 import torch
 import pathlib
+import platform
 
 # Fix WindowsPath issue if model was trained on Linux/Colab
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+if platform.system() == "Windows":
+    pathlib.PosixPath = pathlib.WindowsPath
 
 # --- Title & description ---
 st.title("✨\"Meva\" Classifier")
