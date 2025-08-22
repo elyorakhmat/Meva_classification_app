@@ -4,6 +4,8 @@ from fastai.vision.all import *
 import torch
 import pathlib
 import platform
+from PIL import Image
+import io
 
 # Fix WindowsPath issue if model was trained on Linux/Colab
 if platform.system() == "Windows":
@@ -28,10 +30,9 @@ if file is not None:
     # Show uploaded image
     st.image(file, caption='Uploaded Image', use_container_width=True)
 
-    # Convert to PIL image
-    img = PILImage.create(file)
+    img = Image.open(file).convert("RGB")   # use plain PIL
 
-    # --- Prediction ---
+    # predict
     pred, pred_id, probs = model.predict(img)
 
     max_prob = torch.max(probs)
